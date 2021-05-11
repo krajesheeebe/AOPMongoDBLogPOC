@@ -17,8 +17,9 @@ public class LogController {
 	
 	@RequestMapping(method = RequestMethod.PUT, path = "/log")
 	public ResponseEntity<Object> addLogEntry(@RequestBody LogEntry log) {
+		System.out.println(log);
 		System.out.println("LogController1: " + new Date());
-		logService.storeInMongoDB();
+		logService.storeInMongoDB(log);
 		System.out.println("LogController2: " + new Date());
 		return new ResponseEntity<Object>(HttpStatus.ACCEPTED);
 	}
